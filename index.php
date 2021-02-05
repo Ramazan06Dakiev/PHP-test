@@ -6,77 +6,54 @@
     <title>PHP</title>
 </head>
 <body>
-    <?php 
-        $name = 'Ramazan';
-        echo "Hello! My name is '$name'." ; 
-        $age = '23';
-        echo "<br>" . "I'm $age." . "<hr>";
+    
+    <?php
+        $x = 16;
+        $y = 13;
         
-        $a = 12;
-        $b = 32;
-        $rez = $a + $b;
-        echo "$a + $b = $rez" . '<br>';
+        if (($x % $y) == 0) {
+            echo "$x кратно $y" . '<br>';
+        } else {
+            echo "$x не кратно $y" . '<br>';
+        }
 
-        $a = $a + $b;
-        $b = $a - $b;
-        $a = $a - $b;
-        echo "$a + $b = $rez" . "<hr>";
-    ?>
-    <div class="first-example">
-        <p>Что такое арбуз?</p>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Овощ</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Фрукт</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Ягода</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Цветок</label>
-        </div>
-    </div>
+        if(($x ** 2) > ($y ** 2)) {
+            echo $x ** 2 . '<br>';
+        } else if (($x ** 2) < ($y ** 2)) {
+            echo $y ** 2 . '<br>';
+        } else {
+            echo 'Квадраты равны' . '<br>';
+        }
 
-    <div class="second-example">
-        <p>Выберите фрукты?</p>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Помидор</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Апельсин</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Ананас</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Клубника</label>
-        </div>
-    </div>
+        
+        $mountDays = date('t');
+        echo "Количество дней в этом месяце $mountDays" . '<br>'; 
 
-    <div class="third-example">
-        <p>Перечисли моря?</p>
-        <textarea></textarea>
-    </div>
+        $year = 2021;
+        $leapYear = date('L', mktime(0, 0, 0, 1, 1, $year));
+        if ($leapYear == 1) {
+            echo " $year год високосный"  . '<br>';
+        } else {
+            echo " $year год не високосный"  . '<br>';
+        }
+
+
+        $a = 9;
+        $b = 3;
+        $sum = $a + $b;
+        
+
+        if (($a % 3) == 0 && ($b % 3) == 0) {
+            echo "Оба числа кратны 3 и их сумма равна = $sum" . '<br>';
+        } else if ($b != 0) {
+            $del =  $a / $b;
+            echo "Второе число не равно 0 и деление первого числа на второе равно = $del " . '<br>';
+        } else if ($b == 0) {
+            echo "Некорректный ввод. Второе число равно 0" . '<br>';
+        }
+
+        ?>
+
     
-
-    <?php 
-    $background_color = "blue";
-    $color = "red";
-    $width = "100px";
-    $height = "100px";
-    $tag = "style=\"background-color: $background_color; color: $color; width: $width; height: $height;\" ";
-    echo "<hr>"  .  "<div $tag >Hello! </div>" . "<hr>";
-    ?>
-    
-   
 </body>
 </html>
