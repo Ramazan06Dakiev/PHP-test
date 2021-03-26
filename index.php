@@ -6,76 +6,83 @@
     <title>PHP</title>
 </head>
 <body>
+   
+
     <?php 
-        $name = 'Ramazan';
-        echo "Hello! My name is '$name'." ; 
-        $age = '23';
-        echo "<br>" . "I'm $age." . "<hr>";
+    
+    $array = [];
+    for ($i = 0; $i < 10; $i++) { 
+        $array[$i] = rand(0, 99);
+        $content = implode(" ", $array);
+    }
+
+    $n = count($array);
+    $s = array_sum($array);
+
+    echo  "<h2>Input array: $content</h2> ";
+    echo "<h5>Element which are more previos: ";
+
+    for ($i = 1; $i < $n - 1; $i++) {
+        if ($array[$i] > $array[$i - 1]){
+            echo $array[$i] . ", ";
+        } 
+    } 
+    echo "</h5>";
+    $avg = $s / $n;
+    echo "<h5>Summ: $s, AVG: $avg </h5>";
+
+    function odd($var) {
+        return $var & 1;
+    }
+    $arrayOdd = array_filter($array, "odd");
+    rsort($arrayOdd);
+
+    $oddNum = implode(", ", $arrayOdd);
+
+    echo "<h4> Sorted not pair elements: $oddNum" . "</h4><br>";
+          
+    // №2 
+
+    $arrayDate = ['01-01-1970', '02-01-1998','31-12-2018', '16-01-2019', '20-02-2019', '21-02-2019', '08-03-2019',  '26-03-2021'];
+
+    echo "<h4>Input dates: " . implode(", ", $arrayDate) . "</h4><br>";
+    $secDay = 86400;
+    for ($i = 1; $i < count($arrayDate); $i++) 
+    {
+        $firstNumDays = strtotime($arrayDate[$i]) / $secDay;
+        $lastNumDays = strtotime($arrayDate[$i - 1]) / $secDay;
+        $countDays = ($firstNumDays - $lastNumDays);
+        echo "<h5>" . $arrayDate[$i-1] . " - " . $arrayDate[$i] . " = " . $countDays . " days</h5>";
         
-        $a = 12;
-        $b = 32;
-        $rez = $a + $b;
-        echo "$a + $b = $rez" . '<br>';
+        ;
+    }
+    echo "<br>";
+    
+    //3
+    $arrayInput = [
+        "type=\"text\" value=\"Text1\"",
+        "type=\"radio\" value=\"Radio1\"",
+        "type=\"checkbox\" value=\"Checkbox1\"",
+        "type=\"button\" value=\"Button1\"",
+        "type=\"text\" value=\"Text2\"",
+        "type=\"text\" value=\"Text3\"",
+        "type=\"radio\" value=\"Radio2\"",
+        "type=\"radio\" value=\"Radio3\"",
+        "type=\"checkbox\" value=\"Checkbox2\"",
+        "type=\"button\" value=\"Button2\""
+    ];
 
-        $a = $a + $b;
-        $b = $a - $b;
-        $a = $a - $b;
-        echo "$a + $b = $rez" . "<hr>";
-    ?>
-    <div class="first-example">
-        <p>Что такое арбуз?</p>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Овощ</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Фрукт</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Ягода</label>
-        </div>
-        <div class="block">
-            <input type="radio" name="first-answer">
-            <label for="first-answer">Цветок</label>
-        </div>
-    </div>
-
-    <div class="second-example">
-        <p>Выберите фрукты?</p>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Помидор</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Апельсин</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Ананас</label>
-        </div>
-        <div class="block">
-            <input type="checkbox" name="second-answer">
-            <label for="second-answer">Клубника</label>
-        </div>
-    </div>
-
-    <div class="third-example">
-        <p>Перечисли моря?</p>
-        <textarea></textarea>
-    </div>
+    for ($i = 1; $i < count($arrayInput); $i++) 
+    {
+        
+        echo "<input style=\"display: block;\"$arrayInput[$i]>"  ;
+    }
     
 
-    <?php 
-    $background_color = "blue";
-    $color = "red";
-    $width = "100px";
-    $height = "100px";
-    $tag = "style=\"background-color: $background_color; color: $color; width: $width; height: $height;\" ";
-    echo "<hr>"  .  "<div $tag >Hello! </div>" . "<hr>";
+    //4
     ?>
+        
+    
     
    
 </body>
